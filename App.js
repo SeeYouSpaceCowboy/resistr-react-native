@@ -27,8 +27,6 @@ export default class App extends React.Component {
       <ThemeProvider uiTheme={uiTheme}>
         <ActionButton
             actions={[
-                // icons from react-native-vector-icons
-                // see list https://oblador.github.io/react-native-vector-icons/
                 { icon: 'call', label: 'phone call' },
                 { icon: 'voicemail', label: 'voice message' },
                 { icon: 'keyboard', label: 'email' },
