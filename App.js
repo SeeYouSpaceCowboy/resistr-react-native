@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, NativeModules, Navigator, StatusBar } from 'react-native';
-import { COLOR, ThemeProvider, Toolbar } from 'react-native-material-ui';
+import { COLOR, ThemeProvider, Toolbar, ActionButton } from 'react-native-material-ui';
 
 const UIManager = NativeModules.UIManager;
 
@@ -25,18 +25,22 @@ export default class App extends React.Component {
   render() {
     return (
       <ThemeProvider uiTheme={uiTheme}>
-        <View style={styles.container}>
-					<Toolbar
-						leftElement="menu"
-						centerElement="Searchable"
-						searchable={{
-							autoFocus: true,
-							placeholder: 'Search',
-						}}
-          />
-          <Text>Open up App.js to start working on your app!</Text>
-          <StatusBar backgroundColor="rgba(0, 0, 0, 0.8)" translucent />
-        </View>
+        <ActionButton
+            actions={[
+                // icons from react-native-vector-icons
+                // see list https://oblador.github.io/react-native-vector-icons/
+                { icon: 'call', label: 'phone call' },
+                { icon: 'voicemail', label: 'voice message' },
+                { icon: 'keyboard', label: 'email' },
+                { icon: 'mail-outline', label: 'letter' },
+                { icon: 'people', label: 'demonstration' },
+                { icon: 'account-balance', label: 'town hall' },
+                { icon: 'business', label: 'office visit' },
+                { icon: 'scanner', label: 'fax' },
+            ]}
+            transition="speedDial"
+            onPress={(action) => console.log('pressed',action)}
+        />
       </ThemeProvider>
     );
   }
